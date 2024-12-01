@@ -1,16 +1,19 @@
 import React from 'react'
 
 import home from '../../assets/home.jpg'
-import colors from '../../theme/colorPalate'
+import pizza from '../../assets/pizza.jpg'
+import burger from '../../assets/burger.jpg'
 import PrimaryButton from '../../components/PrimaryButton'
 import SecondryButton from '../../components/SecondryButton'
+import FoodCard from '../../components/FoodCard'
+import RestuarantCard from '../../components/RestuarantCard'
 
 export default function Home() {
     return (
         <div className='flex flex-col h-screen'>
             <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-20'>
                 <div className='flex flex-col lg:w-1/2 sm:w-full text-start items-center lg:justify-start'>
-                    <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20 '>
+                    <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
                         <p className="text-4xl sm:text-4xl md:text-4xl lg:text-7xl font-bold text-start">
                             Where taste meets the myth
                         </p>
@@ -52,6 +55,38 @@ export default function Home() {
                                 <p className="mt-2 text-gray-700 text-sm">It’s time for hunger to can it!</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-10'>
+                <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
+                    <p className='text-xl font-semibold'>
+                        Pick Your Meal Here
+                    </p>
+                    <div className='flex flex-row flex-wrap gap-3 mt-5'>
+                        <FoodCard image={home} name={'desset'}/>
+                        <FoodCard image={burger} name={'burger'}/>
+                        <FoodCard image={pizza} name={'pizza'}/>
+                        <FoodCard image={home} name={'desset'}/>
+                        <FoodCard image={home} name={'desset'}/>
+                    </div>
+                </div>
+            </div>
+            <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-10'>
+                <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
+                    <p className='text-xl font-semibold'>
+                        Pick From Your Favorite Restuarant
+                    </p>
+                    <div className='flex flex-row flex-wrap gap-3 mt-5'>
+                        <RestuarantCard image={home} name={'desset'} description={"To create an auto-sliding effect for your food menu, you can To create an auto-sliding effect for your food menu, you can use Tailwind CSS along with a simple JavaScript interval for automatic sliding. Since Flowbit"}/>
+                        <RestuarantCard image={burger} name={'burger'}/>
+                        <RestuarantCard image={pizza} name={'pizza'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
+                        <RestuarantCard image={home} name={'desset'}/>
                     </div>
                 </div>
             </div>
