@@ -7,10 +7,14 @@ import { FaCircleArrowRight } from "react-icons/fa6";
 
 import colors from '../../theme/colorPalate'
 import FeedbackForm from '../../components/FeedbackForm';
+import RestuarantFood from '../../components/RestuarantFood';
+
+import pizza from '../../assets/pizza.jpg';
 
 export default function RestuarantDetails() {
 
     const [isOpen,setIsOpen] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
     return (
         <div className='flex flex-col min-h-screen'>
@@ -104,6 +108,169 @@ export default function RestuarantDetails() {
                     </div>
                 </div>
             </div>
+            <div className='flex lg:flex-row sm:flex-col flex-wrap w-full space-x-10 sm:gap-5 sm:items-center mt-5'>
+                <div className='flex lg:flex-col sm:flex-row gap-5 ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
+                    <div className='bg-white shadow-lg rounded-lg m-2 w-full h-60'>
+                        <p className='font-bold text-lg m-2'>Food Type</p>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">All</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Vegetarian Only</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Non Vegetarian Only</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Seasonal</label>
+                        </div>
+                    </div>
+                    <div className='bg-white shadow-lg m-2 rounded-lg w-full h-60'>
+                        <p className='font-bold text-lg m-2'>Food Category</p>
+                        <div className="flex items-center gap-2 m-2 ">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">All</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Pizza</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Biriyani</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Burger</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Chiken</label>
+                        </div>
+                        <div className="flex items-center gap-2 m-2">
+                            <div
+                                className={`w-5 h-5 rounded-full border-2 cursor-pointer flex items-center justify-center transition-all duration-300 ${
+                                    isChecked ? 'bg-white border-green-500' : 'bg-white border-green-500'
+                                }`}
+                                onClick={() => setIsChecked(!isChecked)}
+                                >
+                                {isChecked && (
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div> 
+                                    // Inner green circle when checked.
+                                )}
+                            </div>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Dessert</label>
+                        </div>
+                    </div>
+                </div>
+                <div className='w-3/4 flex flex-col gap-2'>
+                    <RestuarantFood
+                        name={'pizza'}
+                        image={pizza}
+                        className=''
+                    />
+                    <RestuarantFood
+                        name={'pizza'}
+                        price={"LKR 1999"}
+                        image={pizza}
+                        description={"Here's an improved version of your checkbox component. I’ve added appropriate spacing, adjusted the background and border for better aesthetics, and ensured proper alignment.If the checkbox styling is not working properly with the approach shared earlier, here's a refined version that ensures it works correctly for both Tailwind CSS and React with custom styling."}
+                    />
+                </div>
+            </div>
             <div className="flex lg:flex-row sm:flex-col flex-wrap w-full justify-center items-center space-x-10 sm:gap-5 sm:items-center mt-5">
                 <div className='flex flex-col w-80'>
                     <h2 className="text-2xl font-bold mb-3">Visit Us</h2>
@@ -121,7 +288,7 @@ export default function RestuarantDetails() {
                 </div>
             </div>
             <div className='items-center justify-center'>
-                <FeedbackForm/>     
+                <FeedbackForm />     
             </div>
         </div>
     )
