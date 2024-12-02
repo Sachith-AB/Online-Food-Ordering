@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import ScrollTop from '../components/ScrollTop'
 import RestuarantDetails from '../pages/Restuarant/RestuarantDetails'
 import Footer from '../components/Footer'
+import Cart from '../pages/Cart'
 
 export default function AppRoute() {
     return (
@@ -15,7 +16,8 @@ export default function AppRoute() {
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/restuarant-details' element={<RestuarantDetails/>}/>
+                <Route path='/restuarant' element={<RestuarantDetails/>}/>
+                <Route path='/cart' element={<Cart/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
