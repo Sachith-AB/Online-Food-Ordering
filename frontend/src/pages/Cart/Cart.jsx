@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { CiLocationOn } from "react-icons/ci";
 
-import AddressCard from '../components/AddressCard';
-import CartItem from '../components/CartItem';
-import colors from '../theme/colorPalate';
+import AddressCard from '../../components/AddressCard';
+import CartItem from '../../components/CartItem';
+import colors from '../../theme/colorPalate';
 
 export default function Cart() {
 
