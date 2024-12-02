@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { AiOutlineDown } from "react-icons/ai";
+import {FaShoppingCart} from 'react-icons/fa'
 
 import colors from '../theme/colorPalate';
 
@@ -18,15 +18,18 @@ export default function RestuarantFood({name,image,description,price}) {
 
     return (
         <div className='w-full bg-white shadow-lg rounded-lg h-full'>
-            <div className='flex justify-between items-center mr-3'>
-                <div className='flex justify-between items-center mr-3'>
+            <div className='flex justify-between  mr-3'>
+                <div className='flex'>
                     <img src={image} alt="food image" className='sm:h-44 lg:h-52 sm:w-40 lg:w-52  rounded-l-lg object-cover'/>
                     <div className='m-5'>
-                        <div className='flex flex-wrap items-center gap-3'>
+                        <div className='flex items-center gap-3'>
                             <h1 class='first-letter:capitalize font-bold text-lg'>
                                 {name}
                             </h1>
                             <p className='font-semibold text-gray-400'>{price}</p>
+                            <button className="w-12 h-10 bg-white relative">
+                                <FaShoppingCart className="text-xl" />
+                            </button>
                         </div>
                         <p className="text-sm">
                             {description && (
@@ -46,7 +49,6 @@ export default function RestuarantFood({name,image,description,price}) {
                         </p>
                     </div>
                 </div>
-                <AiOutlineDown />
             </div>
         </div>
     )
