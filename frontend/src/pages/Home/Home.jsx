@@ -60,7 +60,7 @@ export default function Home() {
             </div>
             <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-10'>
                 <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
-                    <p className='text-xl font-semibold'>
+                    <p className='text-xl font-bold'>
                         Pick Your Meal Here
                     </p>
                     <div className='flex flex-row flex-wrap gap-3 mt-5'>
@@ -74,7 +74,7 @@ export default function Home() {
             </div>
             <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-10'>
                 <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
-                    <p className='text-xl font-semibold'>
+                    <p className='text-xl font-bold'>
                         Pick From Your Favorite Restuarant
                     </p>
                     <div className='flex flex-row flex-wrap gap-3 mt-5'>
