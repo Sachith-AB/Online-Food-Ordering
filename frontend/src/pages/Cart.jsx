@@ -88,7 +88,7 @@ export default function Cart() {
                                             <label className="block text-sm font-medium text-gray-600 mb-1">Address Name</label>
                                             <input
                                                 type="text"
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-300"
                                                 placeholder="e.g., Home, Office"
                                             />
                                         </div>
@@ -97,7 +97,7 @@ export default function Cart() {
                                         <div className="mb-4">
                                             <label className="block text-sm font-medium text-gray-600 mb-1">Address</label>
                                             <textarea
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-300"
                                                 placeholder="Enter your address"
                                             />
                                         </div>
@@ -107,7 +107,7 @@ export default function Cart() {
                                             <label className="block text-sm font-medium text-gray-600 mb-1">City</label>
                                             <input
                                                 type="text"
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-300"
                                                 placeholder="Enter your city"
                                             />
                                         </div>
@@ -117,7 +117,7 @@ export default function Cart() {
                                             <label className="block text-sm font-medium text-gray-600 mb-1">Postal Code</label>
                                             <input
                                                 type="text"
-                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gray-300 focus:outline-none focus:ring-0"
                                                 placeholder="Enter your postal code"
                                             />
                                         </div>

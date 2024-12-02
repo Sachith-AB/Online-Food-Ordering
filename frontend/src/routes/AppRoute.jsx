@@ -8,6 +8,7 @@ import ScrollTop from '../components/ScrollTop'
 import RestuarantDetails from '../pages/Restuarant/RestuarantDetails'
 import Footer from '../components/Footer'
 import Cart from '../pages/Cart'
+import FoodPage from '../pages/Food/FoodPage'
 
 export default function AppRoute() {
     return (
@@ -18,6 +19,7 @@ export default function AppRoute() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/restuarant' element={<RestuarantDetails/>}/>
                 <Route path='/cart' element={<Cart/>}/>
+                <Route path='/food' element={<FoodPage/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
