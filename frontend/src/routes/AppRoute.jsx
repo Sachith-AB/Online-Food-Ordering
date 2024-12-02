@@ -12,6 +12,7 @@ import Header from '../components/Header'
 import ScrollTop from '../components/ScrollTop'
 import Footer from '../components/Footer'
 import Login from '../pages/Login/Login'
+import Register from '../pages/Register/Register'
 
 
 export default function AppRoute() {
@@ -21,6 +22,7 @@ export default function AppRoute() {
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
+                <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/restuarant' element={<RestuarantDetails/>}/>
                 <Route path='/cart' element={<Cart/>}/>
