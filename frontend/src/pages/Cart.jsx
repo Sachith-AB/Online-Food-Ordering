@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { CiLocationOn } from "react-icons/ci";
 
@@ -7,6 +7,12 @@ import CartItem from '../components/CartItem';
 import colors from '../theme/colorPalate';
 
 export default function Cart() {
+
+    const [isModalOpen , setisModalOpen] = useState(false);
+
+    const openModel = () => setisModalOpen(true);
+    const closeModel = () => setisModalOpen(false);
+
     return (
         <div className="min-h-screen flex ">
             {/* Left Section */}
@@ -65,12 +71,83 @@ export default function Cart() {
                                     background:colors.primary.green,
                                     transition: 'background-color 0.3s ease'
                                 }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = colors.secondry.darkGreen}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = colors.primary.green}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = colors.secondry.darkGreen}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = colors.primary.green}
+                                onClick={openModel}
                                 >
                                 Add
                             </button>
                         </div>
+                        {isModalOpen && (
+                            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                                <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+                                    <h2 className="text-xl font-bold text-gray-700 mb-4">Add New Address</h2>
+                                    <form>
+                                        {/* Address Name */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-medium text-gray-600 mb-1">Address Name</label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                placeholder="e.g., Home, Office"
+                                            />
+                                        </div>
+
+                                        {/* Address */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-medium text-gray-600 mb-1">Address</label>
+                                            <textarea
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                placeholder="Enter your address"
+                                            />
+                                        </div>
+
+                                        {/* City */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-medium text-gray-600 mb-1">City</label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                placeholder="Enter your city"
+                                            />
+                                        </div>
+
+                                        {/* Postal Code */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-medium text-gray-600 mb-1">Postal Code</label>
+                                            <input
+                                                type="text"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                placeholder="Enter your postal code"
+                                            />
+                                        </div>
+
+                                        {/* Buttons */}
+                                        <div className="flex justify-end gap-2">
+                                            <button
+                                                type="button"
+                                                className="px-4 py-2 w-1/8 bg-gray-300 hover:bg-gray-400 text-white rounded-lg"
+                                                onClick={closeModel}
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                type="submit"
+                                                className="px-4 py-2 w-1/8  text-white rounded-lg transition-colors"
+                                                style={{
+                                                    background:colors.primary.green,
+                                                    transition: 'background-color 0.3s ease'
+                                                }}
+                                                    onMouseEnter={(e) => e.target.style.backgroundColor = colors.secondry.darkGreen}
+                                                    onMouseLeave={(e) => e.target.style.backgroundColor = colors.primary.green}
+                                            >
+                                                Save
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
