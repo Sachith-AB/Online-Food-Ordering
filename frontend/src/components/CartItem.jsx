@@ -9,7 +9,7 @@ import pizza from '../assets/pizza.jpg'
 export default function CartItem({name,image,price,ing}) {
     return (
         <div className=' border-t-2 w-full '>
-            <div className="flex sm:flex-col lg:flex-row m-2 items-center justify-between">
+            <div className="flex flex-col md:flex-row m-2  justify-between">
                 {/* Left Section */}
                 <div className="flex items-center gap-4">
                     <img src={pizza} alt="food" className="h-20 w-20" />

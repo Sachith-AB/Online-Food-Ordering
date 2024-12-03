@@ -8,9 +8,9 @@ import colors from '../../theme/colorPalate';
 export default function Cart() {
 
     return (
-        <div className="min-h-screen flex ">
+        <div className="min-h-screen flex flex-col md:flex-row">
             {/* Left Section */}
-            <div className="flex-1 lg:w-1/3 p-4 border-r-2">
+            <div className="w-full md:w-1/3 p-4 border-r-2">
                 <div className="flex flex-col">
                     {/* Cart Items */}
                     <div>
