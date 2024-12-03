@@ -14,9 +14,9 @@ export default function RestaurantCard({ image, name, description }) {
         : description;
 
     return (
-        <div className="flex flex-col bg-white shadow-lg rounded-lg lg:w-1/6 sm:w-1/3">
+        <div className="flex flex-col bg-white shadow-lg rounded-lg  w-full md:w-1/6">
             <div>
-                <img src={image} alt={name} className="h-60 w-full rounded-t-md relative" />
+                <img src={image} alt={name} className="h-full md:h-60 w-full rounded-t-md relative " />
             </div>
             <span className='flex absolute m-2 text-white rounded-full px-2 py-1 justify-center items-center text-center text-sm'style={{background:colors.natural.lime}}>Open</span>
             <div className="flex flex-row items-center justify-between m-3">
