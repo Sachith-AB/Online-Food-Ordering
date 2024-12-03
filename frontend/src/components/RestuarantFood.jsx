@@ -17,10 +17,10 @@ export default function RestuarantFood({name,image,description,price}) {
         : description;
 
     return (
-        <div className='w-full bg-white shadow-lg rounded-lg h-full'>
+        <div className='w-full bg-white shadow-lg rounded-lg h-44 md:h-52'>
             <div className='flex justify-between  mr-3'>
-                <div className='flex'>
-                    <img src={image} alt="food image" className='sm:h-44 lg:h-52 sm:w-40 lg:w-52  rounded-l-lg object-cover'/>
+                <div className='flex flex-row'>
+                    <img src={image} alt="food image" className='h-44 md:h-52 w-40 md:w-52  rounded-l-lg object-cover'/>
                     <div className='m-5'>
                         <div className='flex items-center gap-3'>
                             <h1 class='first-letter:capitalize font-bold text-lg'>
@@ -31,22 +31,25 @@ export default function RestuarantFood({name,image,description,price}) {
                                 <FaShoppingCart className="text-xl" />
                             </button>
                         </div>
-                        <p className="text-sm">
-                            {description && (
-                                <>
-                                    {isExpanded ? description : truncateDescription}
-                                    {description.length > 250 && (
-                                        <span
-                                            onClick={toggleExpand}
-                                            className="cursor-pointer ml-1 hover:underline"
-                                            style={{color:colors.primary.green}}
-                                        >
-                                            {isExpanded ? 'Read Less' : 'Read More'}
-                                        </span>
-                                    )}
-                                </>
+                        <p
+                        className="text-sm overflow-hidden break-words"
+                        style={{ maxWidth: "100%", wordWrap: "break-word" }}
+                        >
+                        {description && (
+                            <>
+                            {isExpanded ? description : truncateDescription}
+                            {description.length > 250 && (
+                                <span
+                                onClick={toggleExpand}
+                                className="cursor-pointer ml-1 hover:underline"
+                                style={{ color: colors.primary.green }}
+                                >
+                                {isExpanded ? "Read Less" : "Read More"}
+                                </span>
                             )}
-                        </p>
+                            </>
+                        )}
+</p>
                     </div>
                 </div>
             </div>

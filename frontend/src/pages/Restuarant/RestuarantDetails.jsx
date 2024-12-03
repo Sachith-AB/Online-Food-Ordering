@@ -18,7 +18,7 @@ export default function RestuarantDetails() {
 
     return (
         <div className='flex flex-col min-h-screen'>
-            <div className='flex lg:flex-row sm:flex-col items-center justify-start mt-10'>
+            <div className='flex md:flex-row flex-col items-center justify-start mt-10'>
                 <div className='flex flex-col flex-wrap lg:w-1/2 sm:w-full text-start items-center lg:justify-start'>
                     <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
                         <div className='flex flex-wrap items-center'>
@@ -108,8 +108,8 @@ export default function RestuarantDetails() {
                     </div>
                 </div>
             </div>
-            <div className='flex lg:flex-row sm:flex-col flex-wrap w-full space-x-10 sm:gap-5 sm:items-center mt-5'>
-                <div className='flex lg:flex-col sm:flex-row gap-5 ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
+            <div className='flex flex-col md:flex-row  w-full space-x-10 sm:gap-5 sm:items-center mt-5'>
+                <div className='flex w-full md:w-1/4  gap-5 ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
                     <div className='bg-white shadow-lg rounded-lg m-2 w-full h-60'>
                         <p className='font-bold text-lg m-2'>Food Type</p>
                         <div className="flex items-center gap-2 m-2">
@@ -138,7 +138,7 @@ export default function RestuarantDetails() {
                                     // Inner green circle when checked.
                                 )}
                             </div>
-                            <label htmlFor="all" className="font-semibold text-gray-700">Vegetarian Only</label>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Vegetarian</label>
                         </div>
                         <div className="flex items-center gap-2 m-2">
                             <div
@@ -152,7 +152,7 @@ export default function RestuarantDetails() {
                                     // Inner green circle when checked.
                                 )}
                             </div>
-                            <label htmlFor="all" className="font-semibold text-gray-700">Non Vegetarian Only</label>
+                            <label htmlFor="all" className="font-semibold text-gray-700">Non Vegetarian</label>
                         </div>
                         <div className="flex items-center gap-2 m-2">
                             <div
@@ -257,7 +257,7 @@ export default function RestuarantDetails() {
                         </div>
                     </div>
                 </div>
-                <div className='w-3/4 flex flex-col gap-2'>
+                <div className='w-full md:w-3/4 flex flex-col gap-2 md:mt-48'>
                     <RestuarantFood
                         name={'pizza'}
                         image={pizza}
@@ -267,7 +267,7 @@ export default function RestuarantDetails() {
                         name={'pizza'}
                         price={"LKR 1999"}
                         image={pizza}
-                        description={"Here's an improved version of your checkbox component. I’ve added appropriate spacing, adjusted the background and border for better aesthetics, and ensured proper alignment.If the checkbox styling is not working properly with the approach shared earlier, here's a refined version that ensures it works correctly for both Tailwind CSS and React with custom styling."}
+                        description={"Here's an improved version of yox styling is not working properly with the approach shared earlier, here's a refined version that ensures it works correctly for both Tailwind CSS and React with custom styling."}
                     />
                 </div>
             </div>
