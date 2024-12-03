@@ -10,7 +10,7 @@ export default function InputField({label,type,id,placeholder}) {
                 type={type}
                 id={id}
                 placeholder={placeholder}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300 focus:outline-none"
             />
         </div>
     )
