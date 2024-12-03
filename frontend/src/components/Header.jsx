@@ -19,9 +19,9 @@ export default function Header() {
 
     return (
         <div className='flex px-5 z-50 py-[.8rem] lg:px-20 justify-between' style={{background:colors.primary.white}}>
-            <div className='flex lg:mr-10 sm:mr-4 cursor-pointer space-x-4 text-black items-center'>
+            <a href='/' className='flex lg:mr-10 sm:mr-4 cursor-pointer space-x-4 text-black items-center'>
                 <Logo/>
-            </div>
+            </a>
             <div className='flex lg:ml-10 sm:ml-4 space-x-4 items-center'>
                 <button className="w-12 h-10 bg-white">
                     <AiOutlineSearch className='text-xl'/>

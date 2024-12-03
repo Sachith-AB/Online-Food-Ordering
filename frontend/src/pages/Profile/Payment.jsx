@@ -1,17 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import pizza from '../../assets/burger.jpg';
 import colors from '../../theme/colorPalate';
 import SideBar from '../../components/SideBar';
+import { MdMenu } from 'react-icons/md';
 
 export default function Payment() {
+    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarVisible(!isSidebarVisible);
+    };
+
     return (
         <div className='flex flex-col sm:flex-row min-h-screen w-full'>
             <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
-                <SideBar/>
+                <>
+                    {isSidebarVisible && (
+                        <div
+                        className="fixed inset-0 bg-black bg-opacity-50 z-10 sm:hidden"
+                        onClick={toggleSidebar} // Closes sidebar when clicking outside
+                        ></div>
+                    )}
+                    <div
+                        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white z-20 transform transition-transform duration-300 ${
+                        isSidebarVisible ? "translate-x-0" : "-translate-x-full"
+                        } sm:relative sm:translate-x-0`}
+                    >
+                        <SideBar />
+                    </div>
+                </>
             </div>
             <div className='p-5 flex flex-col flex-1'>
-                <p className=' font-semibold text-3xl mb-5'>Payments</p>
+                <div className='flex flex-row justify-between'>
+                    <p className=' font-semibold text-3xl mb-5'>Payments</p>
+                    <button
+                        onClick={toggleSidebar}
+                        className="sm:hidd rounded-lg mb-4"
+                        style={{color:colors.primary.green}}
+                        
+                        >
+                        <MdMenu size={30}/>
+                    </button>
+                </div>
                 <table>
                     <thead>
                         <tr>

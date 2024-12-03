@@ -1,30 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import SideBar from '../../components/SideBar';
 import InputField from '../../components/InputField';
 import SecondryButton from '../../components/SecondryButton'
 import colors from '../../theme/colorPalate';
 import user from '../../assets/user.jpg'
+import { MdMenu } from 'react-icons/md';
 
 export default function Profile() {
+
+    const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarVisible(!isSidebarVisible);
+    };
+
     return (
         <div className="flex flex-col sm:flex-row min-h-screen w-full">
             {/* Sidebar Section */}
             <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
-                <SideBar />
+                <>
+                    {isSidebarVisible && (
+                        <div
+                        className="fixed inset-0 bg-black bg-opacity-50 z-10 sm:hidden"
+                        onClick={toggleSidebar} // Closes sidebar when clicking outside
+                        ></div>
+                    )}
+                    <div
+                        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white z-20 transform transition-transform duration-300 ${
+                        isSidebarVisible ? "translate-x-0" : "-translate-x-full"
+                        } sm:relative sm:translate-x-0`}
+                    >
+                        <SideBar />
+                    </div>
+                </>
             </div>
             <div className="flex flex-col flex-1">
-                <div className="mt-5 px-5">
+                <div className='flex flex-row justify-between mt-5 px-5'>
                     <h1 className="font-semibold text-3xl">Profile</h1>
-                    <p className="text-sm text-gray-400">
-                        Please ensure all information entered is accurate and correct. Incorrect details may result in delays or rejection of your submission.
-                    </p>
+                    <button
+                        onClick={toggleSidebar}
+                        className="sm:hidd rounded-lg mb-4"
+                        style={{color:colors.primary.green}}
+                        
+                        >
+                        <MdMenu size={30}/>
+                    </button>
                 </div>
+                <p className=" mt-5 px-5 text-sm text-gray-400">
+                        Please ensure all information entered is accurate and correct. Incorrect details may result in delays or rejection of your submission.
+                </p>
                 <div className="mt-5 px-5 flex justify-start w-full">
                     <form action="" className="w-full max-w-4xl ">
                         <div className='flex flex-col md:flex-row gap-3 w-full '>
                             <div className='w-full md:w-1/3 flex flex-col gap-3 justify-center'>
-                                <img src={user} className='h-60 w-60 object-cover rounded-lg' alt="profile photo" />
+                                <img src={user} className='h-60 w-60 object-cover rounded-full' alt="profile photo" />
                                 <input type="file" name="profile" id="profile" />
                                 <SecondryButton text={'Upload '}/>
                             </div>

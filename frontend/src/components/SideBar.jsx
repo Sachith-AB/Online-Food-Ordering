@@ -17,13 +17,15 @@ export default function SideBar() {
         { name: "Favorites", icon: <FaHeart />, link: "/favorite" },
         { name: "Addresses", icon: <FaLocationDot />, link: "/address" },
         { name: "Payments", icon: <MdPayments />, link: "/payment" },
-        { name: "Sign Out", icon: <FaSignOutAlt />, link: "/payment" },
-        
     ];
+
+    const handleSignOut = () => {
+
+    }
 
     return (
         <div
-            className="w-full flex flex-col p-4"
+            className="w-full flex flex-col p-4 min-h-screen"
             style={{
                 backgroundColor: colors.primary.white,
                 transition: "background-color 0.3s ease",
@@ -59,6 +61,28 @@ export default function SideBar() {
                     </Link>
                 </li>
             ))}
+            <li>
+                <a
+                    className="flex items-center gap-3 p-3 rounded-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    onClick={handleSignOut}
+                    style={{
+                        backgroundColor: colors.primary.white,
+                        color: colors.primary.green,
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = colors.primary.green;
+                            e.currentTarget.style.color = colors.primary.white;
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = colors.primary.white;
+                            e.currentTarget.style.color = colors.primary.green;
+                            
+                        }}
+                >
+                    <FaSignOutAlt />
+                    Sign Out
+                </a>
+            </li>
             </ul>
         </nav>
         </div>
