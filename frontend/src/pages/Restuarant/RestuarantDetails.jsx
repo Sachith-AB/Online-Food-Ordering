@@ -8,8 +8,8 @@ import { FaCircleArrowRight } from "react-icons/fa6";
 import colors from '../../theme/colorPalate'
 import FeedbackForm from '../../components/FeedbackForm';
 import RestuarantFood from '../../components/RestuarantFood';
-
 import pizza from '../../assets/pizza.jpg';
+import restuarant from '../../assets/restuarant.jpeg';
 
 export default function RestuarantDetails() {
 
@@ -48,7 +48,7 @@ export default function RestuarantDetails() {
                     <div className='relative'>
                         <div className='rounded-full w-96 h-96 overflow-hidden'>
                             <img 
-                                src="https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D" 
+                                src={restuarant} 
                                 alt="restuarant image" 
                                 className='object-cover w-full h-full' 
                             />

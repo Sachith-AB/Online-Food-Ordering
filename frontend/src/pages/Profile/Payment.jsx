@@ -23,20 +23,20 @@ export default function Payment() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='border-b-2 shadow-lg'>
+                        <tr className='border-b-2  cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out'>
                             <td className="px-4 py-2 flex flex-col justify-center items-center" >
                                 <img src={pizza} alt="" className='h-20 w-20 rounded-full' />
-                                <td className="px-4 py-2 font-semibold text-center" >Burger</td>
+                                <td class="px-4 py-2 font-semibold text-center first-letter:capitalize"  >Burger</td>
                             </td>
                             <td className="px-4 py-2 font-semibold text-center" >2024.11.01</td>
                             <td className="px-4 py-2 font-semibold text-center" >10</td>
                             <td className="px-4 py-2 font-semibold text-center" >$20</td>
                             <td className="px-4 py-2 font-semibold text-center" >$200</td>
                         </tr> 
-                        <tr className='border-b-2 shadow-lg'>
+                        <tr className='border-b-2  cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out'>
                             <td className="px-4 py-2 flex flex-col justify-center items-center" >
                                 <img src={pizza} alt="" className='h-20 w-20 rounded-full' />
-                                <td className="px-4 py-2 font-semibold text-center" >Burger</td>
+                                <td class="px-4 py-2 font-semibold text-center first-letter:capitalize"  >Burger</td>
                             </td>
                             <td className="px-4 py-2 font-semibold text-center" >2024.11.01</td>
                             <td className="px-4 py-2 font-semibold text-center" >10</td>

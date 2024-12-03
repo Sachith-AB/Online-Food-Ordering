@@ -16,6 +16,7 @@ import Register from '../pages/Register/Register'
 import Payment from '../pages/Profile/Payment'
 import Orders from '../pages/Profile/Orders'
 import Address from '../pages/Profile/Address'
+import Favorite from '../pages/Profile/Favorite'
 
 
 export default function AppRoute() {
@@ -36,6 +37,7 @@ export default function AppRoute() {
                 <Route path='/payment' element={<Payment/>}/>
                 <Route path='/orders' element={<Orders/>}/>
                 <Route path='/address' element={<Address/>}/>
+                <Route path='/favorite' element={<Favorite/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

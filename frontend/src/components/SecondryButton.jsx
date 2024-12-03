@@ -4,7 +4,7 @@ import colors from '../theme/colorPalate'
 
 export default function SecondryButton({text}) {
     return (
-        <button className='w-40 h-12 rounded-lg font-semibold border-2' outline 
+        <button className='w-40 h-12 rounded-lg font-semibold border-2 transition-all duration-500 ease-in-out' outline 
             style={{
                 color:colors.primary.green,borderColor:colors.primary.green,
                 transition: 'background-color 0.3s ease'
