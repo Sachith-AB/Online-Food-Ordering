@@ -2,6 +2,7 @@ import React from 'react'
 
 import pizza from '../../assets/pizza.jpg'
 import colors from '../../theme/colorPalate'
+import InputField from '../../components/InputField'
 
 export default function Login() {
     return (
@@ -17,28 +18,18 @@ export default function Login() {
                 <form className='w-full max-w-md'>
                     <h2 className='text-3xl font-bold text-center'>Welcome Back!</h2>
                     <p className='text-lg text-center mb-6 text-gray-400 font-semibold'>Enter your email and password</p>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                            Email address
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block text-sm font-semibold mb-1">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
-                        />
-                    </div>
+                    <InputField 
+                        type={'email'}
+                        label={'Email address'}
+                        id='email'
+                        placeholder='Enter your email'
+                    />
+                    <InputField 
+                        type={'password'}
+                        label={'Password'}
+                        id='password'
+                        placeholder={'Enter your password'}
+                    />
                     <a href='#' className=' text-sm hover:underline cursor-pointer font-semibold' style={{color:colors.primary.green}}>Forgot Password</a>
                     <button 
                         className='w-full px-2 py-3 text-white rounded-lg mt-2' 

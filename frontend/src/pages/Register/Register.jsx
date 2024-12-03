@@ -2,6 +2,7 @@ import React from 'react'
 
 import pizza from '../../assets/burger.jpg'
 import colors from '../../theme/colorPalate'
+import InputField from '../../components/InputField'
 
 export default function Register() {
     return (
@@ -19,39 +20,24 @@ export default function Register() {
                     <p className='text-lg text-center mb-6 text-gray-400 font-semibold'>
                         Enter your personal details join with us.
                     </p>
-                    <div className="mb-4">
-                        <label htmlFor="full-name" className="block text-sm font-semibold mb-2">
-                            Full Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Enter your Full name"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                            Email address
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label htmlFor="password" className="block text-sm font-semibold mb-2">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
-                        />
-                    </div>
+                    <InputField 
+                        type={'text'}
+                        label={'Full name'}
+                        id='name'
+                        placeholder='Enter your full name'
+                    />
+                    <InputField 
+                        type={'email'}
+                        label={'Email address'}
+                        id='email'
+                        placeholder='Enter your email'
+                    />
+                    <InputField 
+                        type={'password'}
+                        label={'Password'}
+                        id='password'
+                        placeholder={'Enter your password'}
+                    />
                     <div className="mb-4">
                         <label htmlFor="password" className="block text-sm font-semibold mb-1">
                             Select Role
