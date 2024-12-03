@@ -4,6 +4,7 @@ import SideBar from '../../components/SideBar';
 import InputField from '../../components/InputField';
 import SecondryButton from '../../components/SecondryButton'
 import colors from '../../theme/colorPalate';
+import user from '../../assets/user.jpg'
 
 export default function Profile() {
     return (
@@ -14,7 +15,7 @@ export default function Profile() {
             </div>
             <div className="flex flex-col flex-1">
                 <div className="mt-5 px-5">
-                    <h1 className="font-semibold text-xl">Profile</h1>
+                    <h1 className="font-semibold text-3xl">Profile</h1>
                     <p className="text-sm text-gray-400">
                         Please ensure all information entered is accurate and correct. Incorrect details may result in delays or rejection of your submission.
                     </p>
@@ -23,7 +24,7 @@ export default function Profile() {
                     <form action="" className="w-full max-w-4xl ">
                         <div className='flex flex-col md:flex-row gap-3 w-full '>
                             <div className='w-full md:w-1/3 flex flex-col gap-3 justify-center'>
-                                <img src='https://t3.ftcdn.net/jpg/02/00/90/24/360_F_200902415_G4eZ9Ok3Ypd4SZZKjc8nqJyFVp1eOD6V.jpg' className='h-60 w-60 object-cover rounded-lg' alt="profile photo" />
+                                <img src={user} className='h-60 w-60 object-cover rounded-lg' alt="profile photo" />
                                 <input type="file" name="profile" id="profile" />
                                 <SecondryButton text={'Upload '}/>
                             </div>

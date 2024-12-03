@@ -13,6 +13,7 @@ import ScrollTop from '../components/ScrollTop'
 import Footer from '../components/Footer'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
+import Payment from '../pages/Profile/Payment'
 
 
 export default function AppRoute() {
@@ -28,6 +29,7 @@ export default function AppRoute() {
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/food' element={<FoodPage/>}/>
                 <Route path='/profile' element={<Profile/>}/>
+                <Route path='/payment' element={<Payment/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
