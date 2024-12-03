@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import colors from '../theme/colorPalate';
 import SecondryButton from '../components/SecondryButton';
 import { AiFillHome } from 'react-icons/ai';
 
 export default function AddressCard() {
+
     return (
         <div className='w-52 h-52 shadow-lg rounded-lg'>
             <div className='flex  gap-2 m-3'>
@@ -17,8 +18,9 @@ export default function AddressCard() {
             <div className='flex items-center justify-center'>
                 <SecondryButton
                 text='SELECT'
-                className='m-4'/>
+                className='p-4'/>
             </div>
         </div>
+        
     )
 }

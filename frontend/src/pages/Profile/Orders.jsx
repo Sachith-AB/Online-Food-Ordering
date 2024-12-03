@@ -16,7 +16,7 @@ export default function Orders() {
                     <thead>
                         <tr>
                         <th className="px-4 py-2 rounded-l-lg" style={{background:colors.primary.green,color:colors.primary.white}}>Food</th>
-                        
+                        <th className="px-4 py-2" style={{background:colors.primary.green,color:colors.primary.white}}>Time</th>
                         <th className="px-4 py-2" style={{background:colors.primary.green,color:colors.primary.white}}>QTY</th>
                         <th className="px-4 py-2" style={{background:colors.primary.green,color:colors.primary.white}}>Price</th>
                         <th className="px-4 py-2 rounded-r-lg" style={{background:colors.primary.green,color:colors.primary.white}}>Total</th>
@@ -28,7 +28,7 @@ export default function Orders() {
                             <img src={pizza} alt="" className='h-20 w-20 rounded-full' />
                             <td className="px-4 py-2 font-semibold text-center" >Burger</td>
                         </td>
-                        
+                        <td className="px-4 py-2 font-semibold text-center items-center" >10.00 PM</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >10</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >$20</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >$200</td>
@@ -38,7 +38,7 @@ export default function Orders() {
                             <img src={pizza} alt="" className='h-20 w-20 rounded-full' />
                             <td className="px-4 py-2 font-semibold text-center" >Burger</td>
                         </td>
-                        
+                        <td className="px-4 py-2 font-semibold text-center items-center" >10.00 AM</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >10</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >$20</td>
                         <td className="px-4 py-2 font-semibold text-center items-center" >$200</td>

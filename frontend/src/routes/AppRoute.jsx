@@ -15,6 +15,7 @@ import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import Payment from '../pages/Profile/Payment'
 import Orders from '../pages/Profile/Orders'
+import Address from '../pages/Profile/Address'
 
 
 export default function AppRoute() {
@@ -26,12 +27,15 @@ export default function AppRoute() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/register' element={<Register/>}/>
                 <Route path='/login' element={<Login/>}/>
+                
                 <Route path='/restuarant' element={<RestuarantDetails/>}/>
                 <Route path='/cart' element={<Cart/>}/>
                 <Route path='/food' element={<FoodPage/>}/>
+
                 <Route path='/profile' element={<Profile/>}/>
                 <Route path='/payment' element={<Payment/>}/>
                 <Route path='/orders' element={<Orders/>}/>
+                <Route path='/address' element={<Address/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
