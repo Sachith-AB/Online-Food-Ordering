@@ -13,7 +13,7 @@ export default function SideBar() {
     const location = useLocation();
     const menuItem = [
         { name: "Profile", icon: <FaUser />, link: "/profile" },
-        { name: "Orders", icon: <IoBagCheck />, link: "/" },
+        { name: "Orders", icon: <IoBagCheck />, link: "/orders" },
         { name: "Favorite", icon: <FaHeart />, link: "/favorite" },
         { name: "Address", icon: <FaLocationDot />, link: "/address" },
         { name: "Payment", icon: <MdPayments />, link: "/payment" },
