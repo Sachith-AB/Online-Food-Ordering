@@ -110,7 +110,7 @@ export default function RestuarantDetails() {
             </div>
             <div className='flex flex-col md:flex-row  w-full space-x-10 sm:gap-5 sm:items-center mt-5'>
                 <div className='flex w-full md:w-1/4  gap-5 ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
-                    <div className='bg-white shadow-lg rounded-lg m-2 w-full h-60'>
+                    <div className='bg-white  rounded-lg m-2 w-full h-60'>
                         <p className='font-bold text-lg m-2'>Food Type</p>
                         <div className="flex items-center gap-2 m-2">
                             <div
@@ -169,7 +169,7 @@ export default function RestuarantDetails() {
                             <label htmlFor="all" className="font-semibold text-gray-700">Seasonal</label>
                         </div>
                     </div>
-                    <div className='bg-white shadow-lg m-2 rounded-lg w-full h-60'>
+                    <div className='bg-white  m-2 rounded-lg w-full h-60'>
                         <p className='font-bold text-lg m-2'>Food Category</p>
                         <div className="flex items-center gap-2 m-2 ">
                             <div
@@ -257,7 +257,7 @@ export default function RestuarantDetails() {
                         </div>
                     </div>
                 </div>
-                <div className='w-full md:w-3/4 flex flex-col gap-2 md:mt-48'>
+                <div className=' md:w-3/4 flex flex-col gap-2 md:mt-48 m-4'>
                     <RestuarantFood
                         name={'pizza'}
                         image={pizza}
@@ -272,7 +272,7 @@ export default function RestuarantDetails() {
                 </div>
             </div>
             <div className="flex lg:flex-row sm:flex-col flex-wrap w-full justify-center items-center space-x-10 sm:gap-5 sm:items-center mt-5">
-                <div className='flex flex-col w-80'>
+                <div className='flex flex-col flex-wrap w-80 ml-9'>
                     <h2 className="text-2xl font-bold mb-3">Visit Us</h2>
                     <p className="text-gray-500">123 Main Street, Colombo, Sri Lanka</p>
                 </div>

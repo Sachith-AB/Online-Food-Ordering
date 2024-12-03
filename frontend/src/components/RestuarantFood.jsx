@@ -17,10 +17,10 @@ export default function RestuarantFood({name,image,description,price}) {
         : description;
 
     return (
-        <div className='w-full bg-white shadow-lg rounded-lg h-44 md:h-52'>
+        <div className='w-full bg-white shadow-lg rounded-lg h-52 md:h-52'>
             <div className='flex justify-between  mr-3'>
                 <div className='flex flex-row'>
-                    <img src={image} alt="food image" className='h-44 md:h-52 w-40 md:w-52  rounded-l-lg object-cover'/>
+                    <img src={image} alt="food image" className='h-52 md:h-52 w-40 md:w-52  rounded-l-lg object-cover'/>
                     <div className='m-5'>
                         <div className='flex items-center gap-3'>
                             <h1 class='first-letter:capitalize font-bold text-lg'>

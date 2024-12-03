@@ -15,7 +15,7 @@ import RestuarantCard from '../../components/RestuarantCard'
 export default function Home() {
     return (
         <div className='flex flex-col min-h-screen'>
-            <div className='flex flex-col md:flex-row  items-center justify-start mt-10'>
+            <div className='flex flex-col md:flex-row  items-center justify-start'>
                 <div className='flex flex-col w-full md:w-1/2 text-start items-center lg:justify-start'>
                     <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
                         <p className="text-4xl sm:text-4xl md:text-4xl lg:text-7xl font-bold text-start">
