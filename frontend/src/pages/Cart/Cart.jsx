@@ -34,7 +34,7 @@ export default function Cart() {
                                 <p className="font-semibold text-sm text-gray-400">LKR 5</p>
                             </div>
                             <div className="flex items-center justify-between mt-1">
-                                <p className="font-semibold text-sm">GST and Restaurant Charges</p>
+                                <p className="font-semibold text-sm">Restaurant Charges</p>
                                 <p className="font-semibold text-sm text-gray-400">LKR 33</p>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
@@ -7,6 +7,18 @@ import colors from '../theme/colorPalate';
 import pizza from '../assets/pizza.jpg'
 
 export default function CartItem({name,image,price,ing}) {
+    const [count,setCount] = useState(0);
+
+    const increaseTotal = () => {
+        setCount(count+1);
+    }
+    const decreaseTotal = () => {
+        if(count === 0){
+            setCount(0)
+        }else{
+            setCount(count-1);
+        }
+    }
     return (
         <div className=' border-t-2 w-full '>
             <div className="flex flex-col md:flex-row m-2  justify-between">
@@ -16,17 +28,19 @@ export default function CartItem({name,image,price,ing}) {
                     <div>
                         <p className="first-letter:capitalize m-2 text-lg font-bold">briyani</p>
                         <div className="flex items-center m-2 space-x-4">
-                            <button>
+                            <button className='cursor-pointer'>
                                 <IoIosAddCircleOutline 
                                     size={24} 
                                     style={{ color: colors.primary.green }}
+                                    onClick={increaseTotal}
                                 />
                             </button>
-                            <p className="text-lg font-semibold">6</p>
-                            <button>
+                            <p className="text-lg font-semibold">{count}</p>
+                            <button className='cursor-pointer'>
                                 <IoIosRemoveCircleOutline 
                                     size={24} 
                                     style={{ color: colors.primary.green }}
+                                    onClick={decreaseTotal}
                                 />
                             </button>
                         </div>

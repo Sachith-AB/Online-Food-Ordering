@@ -40,7 +40,7 @@ export default function Profile() {
                     <h1 className="font-semibold text-3xl">Profile</h1>
                     <button
                         onClick={toggleSidebar}
-                        className="sm:hidd rounded-lg mb-4"
+                        className="flex sm:hidden sm:hidd rounded-lg mb-4"
                         style={{color:colors.primary.green}}
                         
                         >
@@ -54,7 +54,7 @@ export default function Profile() {
                     <form action="" className="w-full max-w-4xl ">
                         <div className='flex flex-col md:flex-row gap-3 w-full '>
                             <div className='w-full md:w-1/3 flex flex-col gap-3 justify-center'>
-                                <img src={user} className='h-60 w-60 object-cover rounded-full' alt="profile photo" />
+                                <img src={user} className='h-40 w-40 md:h-60 md:w-60  object-cover rounded-full' alt="profile photo" />
                                 <input type="file" name="profile" id="profile" />
                                 <SecondryButton text={'Upload '}/>
                             </div>
