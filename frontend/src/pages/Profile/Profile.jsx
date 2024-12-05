@@ -79,7 +79,7 @@ export default function Profile() {
                                         id="role"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
                                     >
-                                        <option value="customer" style={{background:colors.primary.white}} className='hover:text-white'>Customer</option>
+                                        <option value="customer" style={{background:colors.primary.white}} className='hover:text-white bg-black cursor-pointer'>Customer</option>
                                         <option value="admin" style={{background:colors.primary.white}} className=''>Admin</option>
                                         <option value="user" style={{background:colors.primary.white}} className=''>User</option>
                                         <option value="manager" style={{background:colors.primary.white}} className=''>Manager</option>

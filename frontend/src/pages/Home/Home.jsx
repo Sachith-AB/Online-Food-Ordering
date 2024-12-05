@@ -28,7 +28,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col lg:w-1/2 sm:w-full text-start items-center lg:justify-start sm:mt-10">
+                <div className="flex flex-col lg:w-1/2 md:w-full text-start items-center lg:justify-start sm:mt-10">
                     <div className="relative max-w-xs mx-auto mt-10">
                         <div className="relative rounded-full overflow-hidden w-52 h-52 md:w-96 md:h-96">
                             <img src={home} alt="Food Image" className="object-cover w-full h-full" />
