@@ -18,7 +18,6 @@ export default function Register() {
         if(!errors){
             navigate('/login');
         }
-        console.log(errors);
     }
     return (
         <div className='flex min-h-screen'>
@@ -45,7 +44,7 @@ export default function Register() {
                         error={errors.name}
                     />
                     <InputField 
-                        type={'email'}
+                        type={'text'}
                         label={'Email address'}
                         id='email'
                         placeholder='Enter your email'
@@ -82,6 +81,9 @@ export default function Register() {
                                 setFormData({...formData,
                                     [e.target.id] : e.target.value.trim()
                                 });
+                            }}
+                            style={{
+                                borderColor:errors.role ? 'red':''
                             }}
                         >
                             <option value="customer" style={{background:colors.primary.white}} className='hover:text-white hover:bg-green-500'>Customer</option>

@@ -32,7 +32,7 @@ export default function InputField({
                 }}
             />
             {
-                error && error !=''(
+                error && (
                     <p className='text-red-600 font-semibold'>{error}</p>
                 )
             }
