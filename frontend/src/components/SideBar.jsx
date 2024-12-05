@@ -25,7 +25,7 @@ export default function SideBar() {
 
     return (
         <div
-            className="w-full flex flex-col p-4 min-h-screen"
+            className="w-full flex flex-col p-4 h-screen"
             style={{
                 backgroundColor: colors.primary.white,
                 transition: "background-color 0.3s ease",

@@ -13,7 +13,7 @@ export default function Address() {
         setIsSidebarVisible(!isSidebarVisible);
     };
     return (
-        <div className='flex flex-col sm:flex-row min-h-screen w-full'>
+        <div className='flex flex-col sm:flex-row h-screen w-full'>
             <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
                 <>
                     {isSidebarVisible && (

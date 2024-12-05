@@ -16,7 +16,7 @@ export default function Profile() {
     };
 
     return (
-        <div className="flex flex-col sm:flex-row min-h-screen w-full">
+        <div className="flex flex-col sm:flex-row h-screen w-full">
             {/* Sidebar Section */}
             <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
                 <>
@@ -79,7 +79,7 @@ export default function Profile() {
                                         id="role"
                                         className="w-full p-3 border border-gray-300 rounded-lg focus:ring-0 focus:border-gray-300"
                                     >
-                                        <option value="customer" style={{background:colors.primary.white}} className='hover:text-white hover:bg-green-500'>Customer</option>
+                                        <option value="customer" style={{background:colors.primary.white}} className='hover:text-white'>Customer</option>
                                         <option value="admin" style={{background:colors.primary.white}} className=''>Admin</option>
                                         <option value="user" style={{background:colors.primary.white}} className=''>User</option>
                                         <option value="manager" style={{background:colors.primary.white}} className=''>Manager</option>

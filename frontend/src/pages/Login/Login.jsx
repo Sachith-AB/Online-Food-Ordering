@@ -42,9 +42,9 @@ export default function Login() {
                     >
                         Sign In
                     </button>
-                    <p className="text-sm text-center text-gray-500 mt-4">
+                    <p className="text-sm text-center text-gray-500 mt-4 font-semibold">
                         Don't have an account?{" "}
-                        <a href="register" className="hover:underline font-semibold" style={{color:colors.primary.green}}>
+                        <a href="register" className="hover:underline font-bold" style={{color:colors.primary.green}}>
                             Sign Up
                         </a>
                     </p>
