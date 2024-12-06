@@ -28,13 +28,14 @@ export const registerValidate = (formData) => {
 }
 
 export const loginValidate = (formData) => {
-    errors={
+    let  errors={
         email:'',
         password:''
     }
     if(!formData.email){
         errors.email = '*Email is required';
-    }else if(!formData.password){
-
+    } if(!formData.password){
+        errors.password='*Password is required';
     }
+    return errors;
 }
