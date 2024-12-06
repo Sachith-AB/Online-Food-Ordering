@@ -45,6 +45,7 @@ export default function Login() {
                         value={formData.password}
                         setFormData={setFormData}
                         error={errors.password}
+                        icon={true}
                     />
                     <a href='#' className=' text-sm hover:underline cursor-pointer font-semibold' style={{color:colors.primary.green}}>Forgot Password</a>
                     <button 

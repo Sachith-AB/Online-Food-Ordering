@@ -60,6 +60,7 @@ export default function Register() {
                         value={formData.password}
                         setFormData={setFormData}
                         error={errors.password}
+                        icon={true}
                     />
                     <InputField 
                         type={'password'}
@@ -69,6 +70,7 @@ export default function Register() {
                         value={formData.cPassword}
                         setFormData={setFormData}
                         error={errors.cPassword}
+                        icon={true}
                     />
                     <div className="mb-4">
                         <label htmlFor="password" className="block text-sm font-semibold mb-1">
