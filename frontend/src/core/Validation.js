@@ -17,6 +17,8 @@ export const registerValidate = (formData) => {
         errors.email = '*Email is not valid';
     } if(!formData.password){
         errors.password = '*Password is Required';
+    } if(!formData.cPassword){
+        errors.cPassword = '*Confirm Password is Required';
     } else if(formData.password != formData.cPassword){
         errors.cPassword = '*Password must be same';
     } else if(!formData.cPassword){
