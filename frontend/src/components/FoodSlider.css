@@ -1,0 +1,28 @@
+/* Custom Pagination Dots */
+.custom-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: gray; /* Default dot color */
+    opacity: 0.5; /* Inactive dot opacity */
+    border-radius: 50%;
+    margin: 0 5px; /* Spacing between dots */
+    transition: background-color 0.3s ease;
+    }
+    
+    .custom-bullet-active {
+        background-color: #ff5722; /* Active dot color */
+        opacity: 1;
+    }
+    
+    /* Custom Navigation Arrows */
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #144d0b; /* Custom arrow color */
+        transition: color 0.3s ease;
+    }
+    
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+        color: #144d0b; /* Darker arrow color on hover */
+    }
+    

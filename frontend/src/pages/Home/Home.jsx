@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 
@@ -11,6 +9,7 @@ import PrimaryButton from '../../components/PrimaryButton'
 import SecondryButton from '../../components/SecondryButton'
 import FoodCard from '../../components/FoodCard'
 import RestuarantCard from '../../components/RestuarantCard'
+import FoodSlider from '../../components/Slider';
 
 export default function Home() {
     return (
@@ -67,12 +66,8 @@ export default function Home() {
                     <p className='text-xl font-bold'>
                         Pick Your Meal Here
                     </p>
-                    <div className="flex flex-row flex-wrap w-full gap-3 mt-5 overflow-x-auto">
-                        <FoodCard image={home} name="desset" />
-                        <FoodCard image={burger} name="burger" />
-                        <FoodCard image={pizza} name="pizza" />
-                        <FoodCard image={home} name="desset" />
-                        <FoodCard image={home} name="desset" />
+                    <div classNam='flex justify-center self-center'>
+                        <FoodSlider />
                     </div>
                 </div>
             </div>

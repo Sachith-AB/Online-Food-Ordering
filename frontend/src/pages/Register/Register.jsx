@@ -14,9 +14,28 @@ export default function Register() {
 
     const formSubmit = async (e) => {
         e.preventDefault();
-        setErrors(registerValidate(formData));
-        if(!errors){
-            navigate('/login');
+
+        const validationErrors = registerValidate(formData);
+        setErrors(validationErrors);
+        if(errors.name === '' && errors.email=== '' && errors.password === '' && errors.cPassword === '' && errors.role === ''){
+        console.log(formData)
+            try{
+                const res = await fetch("api/auth/signup",{
+                    method:"POST",
+                    headers:{
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                })
+                if(!res.ok){
+                    throw new Error("failed to register")
+                }
+                const data = await res.json();
+                console.log(data);
+                navigate('/login')
+            }catch(error){
+                console.log(error);
+            }
         }
     }
     return (
@@ -88,10 +107,9 @@ export default function Register() {
                                 borderColor:errors.role ? 'red':''
                             }}
                         >
-                            <option value="customer" style={{background:colors.primary.white}} className='hover:text-white hover:bg-green-500'>Customer</option>
-                            <option value="admin" style={{background:colors.primary.white}} className=''>Admin</option>
-                            <option value="user" style={{background:colors.primary.white}} className=''>User</option>
-                            <option value="manager" style={{background:colors.primary.white}} className=''>Manager</option>
+                            <option value="" style={{background:colors.primary.white}} className=''></option>
+                            <option value="ROLE_CUSTOMER" style={{background:colors.primary.white}} className='hover:text-white hover:bg-green-500'>Customer</option>
+                            <option value="ROLE_RESTAURANT_OWNER" style={{background:colors.primary.white}} className=''>Owner</option>
                         </select>
                         {
                         errors.role && (
