@@ -1,18 +1,46 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import {useDispatch,useSelector} from 'react-redux';
 
 import pizza from '../../assets/pizza.jpg'
 import colors from '../../theme/colorPalate'
 import InputField from '../../components/InputField'
 import { loginValidate } from '../../core/Validation';
+import { signInFailure, signInStart, signInSucess } from '../../theme/userSlice';
 
 export default function Login() {
 
     const [formData,setFormData] = useState({});
     const [errors,setErrors] = useState({});
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const formSubmit = async (e) => {
         e.preventDefault();
         setErrors(loginValidate(formData));
+        if(errors.email === '' && errors.password === ''){
+            try{
+                dispatch(signInStart());
+                const res = await fetch('http://localhost:5454/auth/signin',{
+                    method:"POST",
+                    headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify(formData),
+                })
+                const data = await res.json();
+                if(data.success === false){
+                    return dispatch(signInFailure(data.message));
+                }
+                console.log(data);
+                if(res.ok){
+                    dispatch(signInSucess(data));
+                    navigate('/')
+                }
+            }catch(error){
+                console.log(error);
+            }
+        }else{
+            dispatch(signInFailure());
+        }
         console.log(errors);
     }
     return (

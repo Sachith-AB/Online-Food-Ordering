@@ -1,6 +1,6 @@
 import React from 'react'
 import 'swiper/css';
-
+import {useDispatch,useSelector} from 'react-redux';
 
 import home from '../../assets/home.jpg'
 import pizza from '../../assets/pizza.jpg'
@@ -12,6 +12,8 @@ import RestuarantCard from '../../components/RestuarantCard'
 import FoodSlider from '../../components/Slider';
 
 export default function Home() {
+
+    const {currentUser} = useSelector(state =>state.user)
     return (
         <div className='flex flex-col min-h-screen'>
             <div className='flex flex-col md:flex-row  items-center justify-start'>
