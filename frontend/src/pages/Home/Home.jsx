@@ -1,6 +1,6 @@
 import React from 'react'
 import 'swiper/css';
-import {useDispatch,useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import home from '../../assets/home.jpg'
 import pizza from '../../assets/pizza.jpg'
