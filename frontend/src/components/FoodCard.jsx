@@ -5,8 +5,8 @@ export default function FoodCard({image,name,price,rating}) {
         <div className='relative flex flex-col items-center text-center justify-center'>
             <img src={image} alt="" className='h-96 w-80 rounded-lg object-cover'/>
             
-            <p class="absolute top-2 right-20 first-letter:capitalize font-bold text-lg text-white">{price}</p>
-            <div className="absolute bottom-2 left-16 flex flex-col items-start space-y-1">
+            <p class="absolute top-2 right-2 first-letter:capitalize font-bold text-lg text-white">LKR{price}</p>
+            <div className="absolute bottom-2 left-2 flex flex-col items-start space-y-1">
                 <p className="first-letter:capitalize font-bold text-lg text-white bg-black bg-opacity-50 px-2 py-1 rounded-lg">
                     {name}
                 </p>

@@ -29,7 +29,6 @@ export default function Profile() {
         }
         fetchDetails();
     },[currentUser])
-    console.log(data)
 
     return (
         <div className="flex flex-col sm:flex-row h-screen w-full">
@@ -132,7 +131,7 @@ export default function Profile() {
                             placeholder='Confirm your new password'
                             icon={true}
                         />
-                        <div className='mt-0 mt-5'>
+                        <div className='mt-5'>
                             <SecondryButton text={'Change Password'}/>
                         </div>
                     </form>

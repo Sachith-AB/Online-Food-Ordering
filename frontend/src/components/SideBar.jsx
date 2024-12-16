@@ -20,9 +20,10 @@ export default function SideBar() {
     ];
 
     const handleSignOut = () => {
-
-    }
-
+        // try{
+        //     const res = await fetch()
+        // }
+    } 
     return (
         <div
             className="w-full flex flex-col p-4 h-screen"
