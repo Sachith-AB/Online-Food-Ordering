@@ -39,7 +39,7 @@ public class AppConfig {
             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(Arrays.asList("http://localhost:3000","https://sachith-food.vercel.app"));
+                config.setAllowedOrigins(Arrays.asList("http://localhost:5173","https://sachith-food.vercel.app"));
 
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);

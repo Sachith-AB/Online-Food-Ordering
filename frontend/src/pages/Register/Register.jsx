@@ -14,30 +14,40 @@ export default function Register() {
 
     const formSubmit = async (e) => {
         e.preventDefault();
-
+    
         const validationErrors = registerValidate(formData);
         setErrors(validationErrors);
-        if(errors.name === '' && errors.email=== '' && errors.password === '' && errors.cPassword === '' && errors.role === ''){
-        console.log(formData)
-            try{
-                const res = await fetch("api/auth/signup",{
-                    method:"POST",
-                    headers:{
+    
+        // Directly check validationErrors, not errors
+        if (
+            validationErrors.name === '' &&
+            validationErrors.email === '' &&
+            validationErrors.password === '' &&
+            validationErrors.cPassword === '' &&
+            validationErrors.role === ''
+        ) {
+            try {
+                const res = await fetch("http://localhost:5454/auth/signup", {
+                    method: 'POST',
+                    headers: {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(formData),
-                })
-                if(!res.ok){
-                    throw new Error("failed to register")
+                });
+    
+                if (!res.ok) {
+                    throw new Error("Failed to register");
                 }
+    
                 const data = await res.json();
-                console.log(data);
-                navigate('/login')
-            }catch(error){
-                console.log(error);
+                console.log('Registration successful:', data);
+                navigate('/login');
+            } catch (error) {
+                console.error('Registration error:', error);
             }
         }
-    }
+    };
+    
     return (
         <div className='flex min-h-screen'>
             <div className='w-1/2 hidden md:flex items-center justify-center'>
