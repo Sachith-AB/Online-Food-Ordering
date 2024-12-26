@@ -38,7 +38,7 @@ export default function SideBar() {
                 <li key={index}>
                     <Link
                         to={item.link}
-                        className="flex items-center gap-3 p-3 rounded-lg transition-all duration-500 ease-in-out"
+                        className="flex items-center font-semibold gap-3 p-3 rounded-lg transition-all duration-500 ease-in-out"
                         style={{
                             backgroundColor: location.pathname === item.link ? colors.primary.green : colors.primary.white,
                             color: location.pathname === item.link ? colors.primary.white : colors.primary.green,
@@ -49,7 +49,7 @@ export default function SideBar() {
                             }}
                             onMouseLeave={(e) => {
                                 if (location.pathname === item.link) {
-                                    e.currentTarget.style.backgroundColor = colors.primary.green; // Keep active styles on hover leave
+                                    e.currentTarget.style.backgroundColor = colors.primary.green;
                                     e.currentTarget.style.color = colors.primary.white;
                                     } else {
                                     e.currentTarget.style.backgroundColor = colors.primary.white;
@@ -64,7 +64,7 @@ export default function SideBar() {
             ))}
             <li>
                 <a
-                    className="flex items-center gap-3 p-3 rounded-lg transition-all duration-500 ease-in-out cursor-pointer"
+                    className="flex items-center font-semibold gap-3 p-3 rounded-lg transition-all duration-500 ease-in-out cursor-pointer"
                     onClick={handleSignOut}
                     style={{
                         backgroundColor: colors.primary.white,

@@ -1,49 +1,65 @@
 import React, { useState } from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiOutlineClockCircle } from 'react-icons/ai';
+import { MdLocationOn } from 'react-icons/md';
 import colors from '../theme/colorPalate';
 
-export default function RestaurantCard({ image, name, description }) {
-    const [isExpanded, setIsExpanded] = useState(false);
+export default function RestaurantCard({ 
+    image, 
+    name, 
+    address, 
+    description, 
+    startDate, 
+    closeDate, 
+    startTime, 
+    closeTime 
+}) {
+    const [isFavorite, setIsFavorite] = useState(false);
 
-    const toggleExpand = () => {
-        setIsExpanded(!isExpanded);
+    const toggleFavorite = () => {
+        setIsFavorite(!isFavorite);
     };
 
-    const truncateDescription = description && description.length > 20 
-        ? `${description.slice(0, 20)}...` 
-        : description;
-
     return (
-        <div className="flex flex-col bg-white shadow-lg rounded-lg  w-full md:w-1/6">
-            <div>
-                <img src={image} alt={name} className="h-full md:h-60 w-full rounded-t-md relative " />
+        <div className="flex flex-col bg-white shadow-lg rounded-lg w-full md:w-1/4 overflow-hidden transition-transform transform hover:scale-105">
+            <div className="relative">
+                <img src={image} alt={name} className="w-full h-48 object-cover" />
+                <span
+                    className="absolute top-2 left-2 text-sm text-white px-3 py-1 rounded-full"
+                    style={{ background: colors.natural.lime }}
+                >
+                    Open
+                </span>
             </div>
-            <span className='flex absolute m-2 text-white rounded-full px-2 py-1 justify-center items-center text-center text-sm'style={{background:colors.natural.lime}}>Open</span>
-            <div className="flex flex-row items-center justify-between m-3">
-                <div>
-                    <p className="first-letter:capitalize font-semibold">{name}</p>
+            <div className="p-4">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h3 className="text-lg font-semibold capitalize">{name}</h3>
+                        <p className="text-sm text-gray-500 flex items-center">
+                            <MdLocationOn className="mr-1" /> {address}
+                        </p>
+                    </div>
+                    <button 
+                        onClick={toggleFavorite} 
+                        className={`text-xl ${isFavorite ? 'text-red-500' : 'text-gray-400'} transition-colors`}
+                    >
+                        <AiOutlineHeart/>
+                    </button>
                 </div>
-                <div>
-                    <AiOutlineHeart />
-                </div>
-            </div>
-            <div className="m-3">
-                <p className="text-sm">
-                    {description && (
-                        <>
-                            {isExpanded ? description : truncateDescription}
-                            {description.length > 20 && (
-                                <span
-                                    onClick={toggleExpand}
-                                    className="cursor-pointer ml-1 hover:underline"
-                                    style={{color:colors.primary.green}}
-                                >
-                                    {isExpanded ? 'Read Less' : 'Read More'}
-                                </span>
-                            )}
-                        </>
-                    )}
+                <p className="text-sm text-gray-600 mt-2 font-semibold">
+                    {description && description.length > 80 
+                        ? `${description.slice(0, 80)}...` 
+                        : description}
                 </p>
+                <div className="mt-4 text-sm text-gray-700">
+                    <div className="flex items-center">
+                        <AiOutlineClockCircle className="mr-2 text-gray-500" />
+                        <span className="font-medium">Start&nbsp;: &nbsp;</span> {startDate} at {startTime}
+                    </div>
+                    <div className="flex items-center mt-1">
+                        <AiOutlineClockCircle className="mr-2 text-gray-500" />
+                        <span className="font-medium">Close : &nbsp;</span> {closeDate} at {closeTime}
+                    </div>
+                </div>
             </div>
         </div>
     );

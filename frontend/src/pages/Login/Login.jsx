@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 import pizza from '../../assets/pizza.jpg'
 import colors from '../../theme/colorPalate'
@@ -12,37 +12,53 @@ export default function Login() {
 
     const [formData,setFormData] = useState({});
     const [errors,setErrors] = useState({});
+    const [errorB,setErrorB] = useState("")
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const formSubmit = async (e) => {
         e.preventDefault();
-        setErrors(loginValidate(formData));
-        if(errors.email === '' && errors.password === ''){
-            try{
-                dispatch(signInStart());
-                const res = await fetch('http://localhost:5454/auth/signin',{
-                    method:"POST",
-                    headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify(formData),
-                })
-                const data = await res.json();
-                if(data.success === false){
-                    return dispatch(signInFailure(data.message));
-                }
-                console.log(data);
-                if(res.ok){
-                    dispatch(signInSucess(data));
-                    navigate('/')
-                }
-            }catch(error){
-                console.log(error);
-            }
-        }else{
-            dispatch(signInFailure());
+    
+        // Perform validation and capture errors immediately
+        const validationErrors = loginValidate(formData);
+    
+        if (Object.values(validationErrors).some((error) => error !== "")) {
+            // If there are validation errors, update the error state and stop further processing
+            setErrors(validationErrors);
+            dispatch(signInFailure("Validation errors found."));
+            return;
         }
-        console.log(errors);
-    }
+    
+        try {
+            // Start the sign-in process
+            dispatch(signInStart());
+    
+            // Perform the API request
+            const res = await fetch('http://localhost:5454/auth/signin', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+    
+            const data = await res.json();
+    
+            if (!res.ok || data.success === false) {
+                // Handle API errors
+                dispatch(signInFailure(data.message || "Failed to sign in"));
+                return;
+            }
+    
+            // Successful sign-in
+            dispatch(signInSucess(data));
+            navigate('/');
+        } catch (error) {
+            // Handle any other errors
+            console.error("Error during sign-in:", error);
+            setErrorB(error);
+            dispatch(signInFailure("An unexpected error occurred."));
+        }
+    };
+    
     return (
         <div className='flex h-screen '>
             <div className='w-1/2 hidden md:flex items-center justify-center'>
@@ -93,6 +109,13 @@ export default function Login() {
                             Sign Up
                         </a>
                     </p>
+                    {
+                        errorB && (
+                            <span>
+                                {errorB}
+                            </span>
+                        )
+                    }
                 </form>
             </div>
         </div>
