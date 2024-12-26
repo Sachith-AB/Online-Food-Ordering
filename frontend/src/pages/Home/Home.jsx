@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import { useSelector } from 'react-redux';
 
@@ -7,11 +7,28 @@ import PrimaryButton from '../../components/PrimaryButton';
 import SecondryButton from '../../components/SecondryButton';
 import RestaurantCard from '../../components/RestuarantCard';
 import FoodSlider from '../../components/Slider';
-import restuarant from '../../assets/restuarant.jpeg';
+import restuarantImage from '../../assets/restuarant.jpeg';
+import { getRestaurantDetails, getUserDetails } from '../../core/user';
 
 export default function Home() {
     const { currentUser } = useSelector((state) => state.user);
+    const [data,setData] = useState({});
+    const [restaurants,setRestaurants] = useState({});
 
+    useEffect(()=>{
+        const fetchDetails = async () => {
+            try {
+                const data = await getUserDetails(currentUser.jwt); 
+                const restaurant = await getRestaurantDetails(currentUser.jwt)
+                setData(data);
+                setRestaurants(restaurant);
+            } catch (error) {
+                console.error("Error fetching user details:", error); 
+            }
+        }
+        fetchDetails();
+    },[currentUser])
+    console.log(restaurants[0]);
     return (
         <div className="flex flex-col min-h-screen overflow-x-hidden">
             {/* Hero Section */}
@@ -30,7 +47,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center w-full md:w-1/2 mt-8 md:mt-0">
                     <div className="relative rounded-full w-80 h-80 md:w-96 md:h-96">
-                        <img src={restuarant} alt="Food Image" className="object-cover w-full h-full rounded-full" />
+                        <img src={restuarantImage} alt="Food Image" className="object-cover w-full h-full rounded-full" />
                         <div className="absolute top-0   transform -translate-x-1/2 bg-white bg-opacity-50 px-3 py-2 rounded-full shadow-md">
                             <span className="text-sm font-bold text-gray-700">5.0 Ratings</span>
                             <span className="text-yellow-400 ml-2">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
@@ -61,36 +78,23 @@ export default function Home() {
             <div className="px-4 md:px-10 lg:px-20 py-10">
                 <p className="text-xl font-bold mb-6">Pick From Your Favorite Restaurant</p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-6">
-                    <RestaurantCard
-                        image={restuarant}
-                        name="The Gourmet Kitchen"
-                        address="123 Foodie Lane, Flavor Town"
-                        description="A fine dining experience with a touch of elegance and a menu crafted by top chefs."
-                        startDate="2024-01-01"
-                        closeDate="2024-12-31"
-                        startTime="10:00 AM"
-                        closeTime="10:00 PM"
-                    />
-                    <RestaurantCard
-                        image={restuarant}
-                        name="The Gourmet Kitchen"
-                        address="123 Foodie Lane, Flavor Town"
-                        description="A fine dining experience with a touch of elegance and a menu crafted by top chefs."
-                        startDate="2024-01-01"
-                        closeDate="2024-12-31"
-                        startTime="10:00 AM"
-                        closeTime="10:00 PM"
-                    />
-                    <RestaurantCard
-                        image={restuarant}
-                        name="The Gourmet Kitchen"
-                        address="123 Foodie Lane, Flavor Town"
-                        description="A fine dining experience with a touch of elegance and a menu crafted by top chefs."
-                        startDate="2024-01-01"
-                        closeDate="2024-12-31"
-                        startTime="10:00 AM"
-                        closeTime="10:00 PM"
-                    />
+                    {
+                        Array.isArray(restaurants) && restaurants.map((restaurant)=>(
+                            <RestaurantCard
+                            key={restaurant.id}
+                            image={restuarantImage}
+                            name={restaurant.name}
+                            address="123 Foodie Lane, Flavor Town"
+                            description={restaurant.description}
+                            openHours={restaurant.openingHours}
+                            phone={restaurant.contactInformation.mobile}
+                            email={restaurant.contactInformation.email}
+                            twitter={restaurant.contactInformation.twitter}
+                            open={restaurant.open}
+                            type={restaurant.cuisineType}
+                        />
+                        ))
+                    }
                 </div>
             </div>
         </div>

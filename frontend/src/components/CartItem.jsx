@@ -41,6 +41,7 @@ export default function CartItem({name,image,price,ing}) {
                                     size={24} 
                                     style={{ color: colors.primary.green }}
                                     onClick={decreaseTotal}
+                                    className='cursor-pointer'
                                 />
                             </button>
                         </div>
