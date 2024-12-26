@@ -36,7 +36,7 @@ export default function Payment() {
                     <p className=' font-semibold text-3xl mb-5'>Payments</p>
                     <button
                         onClick={toggleSidebar}
-                        className="sm:hidd rounded-lg mb-4"
+                        className="sm:hidden rounded-lg mb-4"
                         style={{color:colors.primary.green}}
                         
                         >

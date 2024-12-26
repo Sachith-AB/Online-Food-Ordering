@@ -55,7 +55,7 @@ export default function Profile() {
                     <h1 className="font-semibold text-3xl">Profile</h1>
                     <button
                         onClick={toggleSidebar}
-                        className="flex sm:hidden sm:hidd rounded-lg mb-4"
+                        className="flex sm:hidden rounded-lg mb-4"
                         style={{color:colors.primary.green}}
                         
                         >
