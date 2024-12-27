@@ -7,10 +7,10 @@ import colors from '../../theme/colorPalate';
 
 export default function Cart() {
 
-    return (
-        <div className="min-h-screen flex flex-col md:flex-row">
+    return ( 
+        <div className="min-h-screen flex flex-col md:flex-row ">
             {/* Left Section */}
-            <div className="w-full md:w-1/3 p-4 border-r-2">
+            <div className="w-full md:w-1/3 p-4 border-r-2  mt-24">
                 <div className="flex flex-col">
                     {/* Cart Items */}
                     <div>
@@ -47,7 +47,7 @@ export default function Cart() {
             </div>
 
             {/* Right Section */}
-            <div className="flex-1 lg:w-2/3 p-4">
+            <div className="flex-1 lg:w-2/3 p-4  mt-24">
                 <div>
                     <p className="font-semibold text-lg mb-3">Choose Delivery Address</p>
                     <div className='flex flex-wrap items-center justify-center gap-3'>

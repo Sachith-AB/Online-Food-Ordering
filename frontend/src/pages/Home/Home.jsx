@@ -32,7 +32,7 @@ export default function Home() {
     return (
         <div className="flex flex-col min-h-screen overflow-x-hidden">
             {/* Hero Section */}
-            <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-10 lg:px-20 py-10">
+            <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-10 lg:px-20 py-10 mt-20">
                 <div className="flex flex-col w-full md:w-1/2 text-start items-center lg:items-start">
                     <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-center lg:text-start">
                         Where taste meets the myth

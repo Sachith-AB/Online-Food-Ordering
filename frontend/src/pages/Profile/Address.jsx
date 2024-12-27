@@ -14,7 +14,7 @@ export default function Address() {
     };
     return (
         <div className='flex flex-col sm:flex-row h-screen w-full'>
-            <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
+            <div className="fixed z-50 flex justify-cente sm:justify-start w-full sm:w-1/4 mt-20">
                 <>
                     {isSidebarVisible && (
                         <div
@@ -31,7 +31,7 @@ export default function Address() {
                     </div>
                 </>
             </div>
-            <div className='p-5 flex flex-col flex-1'>
+            <div className='p-5 flex flex-col flex-1 mt-20 sm:ml-60'>
                 <div className='flex flex-row justify-between'>
                     <p className=' font-semibold text-3xl mb-5'>Addresses</p>
                     <button
@@ -43,7 +43,7 @@ export default function Address() {
                         <MdMenu size={30}/>
                     </button>
                 </div>
-                <div className='flex flex-col md:flex-row gap-3 justify-center items-center'>
+                <div className='flex flex-col md:flex-row gap-2 w-full '>
                     <AddressCard/>
                     <AddressCard/>
                     <AddressCard/>

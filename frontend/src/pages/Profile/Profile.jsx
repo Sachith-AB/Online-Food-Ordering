@@ -33,7 +33,7 @@ export default function Profile() {
     return (
         <div className="flex flex-col sm:flex-row h-screen w-full">
             {/* Sidebar Section */}
-            <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
+            <div className="fixed z-50 flex justify-center sm:justify-start w-full sm:w-1/4 mt-20">
                 <>
                     {isSidebarVisible && (
                         <div
@@ -50,7 +50,7 @@ export default function Profile() {
                     </div>
                 </>
             </div>
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 mt-20 sm:ml-64">
                 <div className='flex flex-row justify-between mt-5 px-5'>
                     <h1 className="font-semibold text-3xl">Profile</h1>
                     <button

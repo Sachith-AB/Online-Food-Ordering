@@ -18,7 +18,7 @@ export default function RestuarantDetails() {
 
     return (
         <div className='flex flex-col min-h-screen'>
-            <div className='flex md:flex-row flex-col items-center justify-start mt-10'>
+            <div className='flex md:flex-row flex-col items-center justify-start mt-20'>
                 <div className='flex flex-col flex-wrap lg:w-1/2 sm:w-full text-start items-center lg:justify-start'>
                     <div className='ml-5 sm:ml-10 md:ml-16 lg:ml-20'>
                         <div className='flex flex-wrap items-center'>

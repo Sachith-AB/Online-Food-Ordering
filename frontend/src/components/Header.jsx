@@ -23,7 +23,7 @@ export default function Header() {
     }
 
     return (
-        <div className='relative flex px-5 z-50 py-[.8rem] lg:px-20 justify-between' style={{background:colors.primary.white}}>
+        <div className='fixed w-full flex px-5 z-50 py-[.8rem] lg:px-20 justify-between border-b-2' style={{background:colors.primary.white}}>
             <a href='/' className='flex lg:mr-10 sm:mr-4 cursor-pointer space-x-4 text-black items-center'>
                 <Logo/>
             </a>

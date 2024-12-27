@@ -13,7 +13,7 @@ export default function Favorite() {
     };
     return (
         <div className='flex flex-col sm:flex-row min-h-screen w-full'>
-            <div className="flex justify-center sm:justify-start w-full sm:w-1/4">
+            <div className="fixed z-50 flex justify-center sm:justify-start w-full sm:w-1/4 mt-20">
                 <>
                     {isSidebarVisible && (
                         <div
@@ -30,7 +30,7 @@ export default function Favorite() {
                     </div>
                 </>
             </div>
-            <div className='p-5 flex flex-col flex-1'>
+            <div className='p-5 flex flex-col flex-1 mt-20 sm:ml-60'>
                 <div className='flex flex-row justify-between'>
                     <p className=' font-semibold text-3xl mb-5'>Favorites</p>
                     <button

@@ -50,14 +50,14 @@ export default function Register() {
     
     return (
         <div className='flex min-h-screen'>
-            <div className='w-1/2 hidden md:flex items-center justify-center'>
+            <div className='w-1/2 hidden md:flex items-center justify-center mt-20'>
                 <img 
                     src={pizza}
                     alt='image'
                     className='w-full h-full object-cover rounded-lg'
                 />
             </div>
-            <div className='w-full md:w-1/2 flex items-center justify-center p-8 bg-white'>
+            <div className='w-full md:w-1/2 flex items-center justify-center p-8 bg-white mt-20'>
                 <form className='w-full max-w-md' onSubmit={formSubmit}>
                     <h2 className='text-3xl font-bold text-center'>Create an Account</h2>
                     <p className='text-lg text-center mb-6 text-gray-400 font-semibold'>
