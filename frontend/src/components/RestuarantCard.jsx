@@ -76,13 +76,13 @@ export default function RestaurantCard({
                     <div className="flex items-center mt-2">
                         <HiOutlineMail className="mr-2 text-gray-500" />
                         <span className="font-medium">Email: </span> 
-                        <a href={`mailto:${email}`} className="text-blue-500 hover:underline">{email}</a>
+                        <a href={`mailto:${email}`} className=" hover:underline font-semibold" style={{color:colors.primary.green}}>{email}</a>
                     </div>
                     {twitter && (
                         <div className="flex items-center mt-2">
                             <FaTwitter className="mr-2 text-gray-500" />
                             <span className="font-medium">Twitter: </span> 
-                            <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                            <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer" className=" hover:underline font-semibold" style={{color:colors.primary.green}}>
                                 {twitter}
                             </a>
                         </div>

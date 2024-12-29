@@ -48,26 +48,26 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public List<Food> getResturantFood(
-        Long resturantId, 
-        boolean isVegitarian, 
-        boolean isNonVeg, 
-        boolean isSeasonal,
-        String foodCategory) {
-            List<Food> foods = foodRepository.findByResturantId(resturantId);
+            Long resturantId,
+            boolean isVegitarian,
+            boolean isNonVeg,
+            boolean isSeasonal,
+            String foodCategory) {
+        List<Food> foods = foodRepository.findByResturantId(resturantId);
 
-            if(isVegitarian){
-                foods = filterByVegitarian(foods,isVegitarian);
-            }
-            if(isNonVeg){
-                foods = filterByNonVeg(foods,isNonVeg);
-            }
-            if(isSeasonal){
-                foods = filterByIsSeasonal(foods,isSeasonal);
-            }
-            if(foodCategory != null && !foodCategory.equals("")){
-                foods = filterByCategory(foods,foodCategory);
-            }
-            return foods;
+        if (isVegitarian) {
+            foods = filterByVegitarian(foods, isVegitarian);
+        }
+        if (isNonVeg) {
+            foods = filterByNonVeg(foods, isNonVeg);
+        }
+        if (isSeasonal) {
+            foods = filterByIsSeasonal(foods, isSeasonal);
+        }
+        if (foodCategory != null && !foodCategory.equals("")) {
+            foods = filterByCategory(foods, foodCategory);
+        }
+        return foods;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class FoodServiceImpl implements FoodService {
     public Food findFoodById(Long foodId) throws Exception {
         Optional<Food> optionalFood = foodRepository.findById(foodId);
 
-        if(optionalFood.isEmpty()){
+        if (optionalFood.isEmpty()) {
             throw new Exception("Food not exist");
         }
         return optionalFood.get();
@@ -92,32 +92,35 @@ public class FoodServiceImpl implements FoodService {
         return foodRepository.save(food);
     }
 
-    private List<Food> filterByCategory(List<Food> foods, String foodCategory){
+    private List<Food> filterByCategory(List<Food> foods, String foodCategory) {
 
-        return foods.stream().filter(food->{
-                if(food.getCategory() != null){
-                    return food.getCategory().getName().equals(foodCategory);
-                }else{
-                    return false;
-                }
+        return foods.stream().filter(food -> {
+            if (food.getCategory() != null) {
+                return food.getCategory().getName().equals(foodCategory);
+            } else {
+                return false;
             }
-        ).collect(Collectors.toList());
+        }).collect(Collectors.toList());
     }
 
+    private List<Food> filterByIsSeasonal(List<Food> foods, boolean isSeasonal) {
 
-    private List<Food> filterByIsSeasonal(List<Food> foods, boolean isSeasonal){
-        
-        return foods.stream().filter(food-> food.isSeasonal() == isSeasonal).collect(Collectors.toList());
+        return foods.stream().filter(food -> food.isSeasonal() == isSeasonal).collect(Collectors.toList());
     }
 
-    private List<Food> filterByNonVeg(List<Food> foods, boolean isNonVeg){
-        
-        return foods.stream().filter(food-> food.isVegitarian() != false).collect(Collectors.toList());
+    private List<Food> filterByNonVeg(List<Food> foods, boolean isNonVeg) {
+
+        return foods.stream().filter(food -> food.isVegitarian() != false).collect(Collectors.toList());
     }
 
-    private List<Food> filterByVegitarian(List<Food> foods, boolean isVegitarian){
-        
-        return foods.stream().filter(food-> food.isVegitarian() == isVegitarian).collect(Collectors.toList());
+    private List<Food> filterByVegitarian(List<Food> foods, boolean isVegitarian) {
+
+        return foods.stream().filter(food -> food.isVegitarian() == isVegitarian).collect(Collectors.toList());
     }
-    
+
+    @Override
+    public List<Food> getAllFoods() throws Exception {
+        return foodRepository.findAll();
+    }
+
 }

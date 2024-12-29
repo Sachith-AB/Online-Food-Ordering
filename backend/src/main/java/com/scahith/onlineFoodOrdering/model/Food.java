@@ -42,8 +42,9 @@ public class Food {
 
     @Column(columnDefinition = "DATETIME")
     private Date creationDate;
-    
+
     private boolean isSeasonal;
     private boolean isVegitarian;
     private boolean isAvailable;
+    private String image;
 }

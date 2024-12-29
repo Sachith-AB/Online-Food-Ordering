@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import { useSelector } from 'react-redux';
 
-import home from '../../assets/home.jpg';
 import PrimaryButton from '../../components/PrimaryButton';
 import SecondryButton from '../../components/SecondryButton';
 import RestaurantCard from '../../components/RestuarantCard';
@@ -14,12 +13,14 @@ export default function Home() {
     const { currentUser } = useSelector((state) => state.user);
     const [data,setData] = useState({});
     const [restaurants,setRestaurants] = useState({});
+    const [token,setToken] = useState("");
 
     useEffect(()=>{
         const fetchDetails = async () => {
             try {
-                const data = await getUserDetails(currentUser.jwt); 
-                const restaurant = await getRestaurantDetails(currentUser.jwt)
+                setToken(currentUser.jwt);
+                const data = await getUserDetails(token); 
+                const restaurant = await getRestaurantDetails(token)
                 setData(data);
                 setRestaurants(restaurant);
             } catch (error) {
@@ -28,7 +29,6 @@ export default function Home() {
         }
         fetchDetails();
     },[currentUser])
-    console.log(restaurants[0]);
     return (
         <div className="flex flex-col min-h-screen overflow-x-hidden">
             {/* Hero Section */}
@@ -67,36 +67,39 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
-            {/* Food Slider Section */}
-            <div className="px-4 md:px-10 lg:px-20 py-10">
-                <p className="text-xl font-bold mb-6">Pick Your Meal Here</p>
-                <FoodSlider />
-            </div>
-
-            {/* Restaurant Section */}
-            <div className="px-4 md:px-10 lg:px-20 py-10">
-                <p className="text-xl font-bold mb-6">Pick From Your Favorite Restaurant</p>
-                <div className="flex flex-wrap justify-center md:justify-start gap-6">
-                    {
-                        Array.isArray(restaurants) && restaurants.map((restaurant)=>(
-                            <RestaurantCard
-                            key={restaurant.id}
-                            image={restuarantImage}
-                            name={restaurant.name}
-                            address="123 Foodie Lane, Flavor Town"
-                            description={restaurant.description}
-                            openHours={restaurant.openingHours}
-                            phone={restaurant.contactInformation.mobile}
-                            email={restaurant.contactInformation.email}
-                            twitter={restaurant.contactInformation.twitter}
-                            open={restaurant.open}
-                            type={restaurant.cuisineType}
-                        />
-                        ))
-                    }
-                </div>
-            </div>
+            {
+                token && (
+                    <>
+                    <div className="px-4 md:px-10 lg:px-20 py-10">
+                        <p className="text-xl font-bold mb-6">Pick Your Meal Here</p>
+                        <FoodSlider jwt={currentUser.jwt}/>
+                    
+                    </div>
+                    <div className="px-4 md:px-10 lg:px-20 py-10">
+                        <p className="text-xl font-bold mb-6">Pick From Your Favorite Restaurant</p>
+                        <div className="flex flex-wrap justify-center md:justify-start gap-6">
+                            {
+                                Array.isArray(restaurants) && restaurants.map((restaurant)=>(
+                                    <RestaurantCard
+                                    key={restaurant.id}
+                                    image={restuarantImage}
+                                    name={restaurant.name}
+                                    address="123 Foodie Lane, Flavor Town"
+                                    description={restaurant.description}
+                                    openHours={restaurant.openingHours}
+                                    phone={restaurant.contactInformation.mobile}
+                                    email={restaurant.contactInformation.email}
+                                    twitter={restaurant.contactInformation.twitter}
+                                    open={restaurant.open}
+                                    type={restaurant.cuisineType}
+                                />
+                                ))
+                            }
+                        </div>
+                    </div>
+                </>
+                )
+            }
         </div>
     );
 }
