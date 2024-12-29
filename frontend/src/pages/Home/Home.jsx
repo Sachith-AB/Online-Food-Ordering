@@ -8,6 +8,7 @@ import RestaurantCard from '../../components/RestuarantCard';
 import FoodSlider from '../../components/Slider';
 import restuarantImage from '../../assets/restuarant.jpeg';
 import { getRestaurantDetails, getUserDetails } from '../../core/user';
+import logo from '../../../public/logo.svg'
 
 export default function Home() {
     const { currentUser } = useSelector((state) => state.user);
@@ -45,6 +46,7 @@ export default function Home() {
                         <SecondryButton text="Explore Menu" />
                     </div>
                 </div>
+                <img src={logo} alt="" />
                 <div className="flex flex-col items-center w-full md:w-1/2 mt-8 md:mt-0">
                     <div className="relative rounded-full w-80 h-80 md:w-96 md:h-96">
                         <img src={restuarantImage} alt="Food Image" className="object-cover w-full h-full rounded-full" />
@@ -82,7 +84,7 @@ export default function Home() {
                                 Array.isArray(restaurants) && restaurants.map((restaurant)=>(
                                     <RestaurantCard
                                     key={restaurant.id}
-                                    image={restuarantImage}
+                                    image={restaurant.images}
                                     name={restaurant.name}
                                     address="123 Foodie Lane, Flavor Town"
                                     description={restaurant.description}
