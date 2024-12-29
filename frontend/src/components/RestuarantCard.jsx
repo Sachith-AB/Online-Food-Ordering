@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { AiOutlineHeart, AiOutlineClockCircle } from 'react-icons/ai';
 import { MdLocationOn } from 'react-icons/md';
 import { IoFastFood } from "react-icons/io5";
@@ -7,6 +9,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import colors from '../theme/colorPalate';
 
 export default function RestaurantCard({ 
+    id,
     image, 
     name, 
     address, 
@@ -19,13 +22,21 @@ export default function RestaurantCard({
     twitter 
 }) {
     const [isFavorite, setIsFavorite] = useState(false);
+    const navigate = useNavigate();
 
     const toggleFavorite = () => {
         setIsFavorite(!isFavorite);
     };
 
+    const goToRestaurantPage = (id) => {
+        navigate(`/restuarant?id=${id}`)
+    }
+
     return (
-        <div className="flex flex-col bg-white shadow-lg rounded-lg w-full md:w-1/4 overflow-hidden transition-transform transform hover:scale-105">
+        <div className="flex flex-col bg-white shadow-lg cursor-pointer rounded-lg w-full md:w-1/4 overflow-hidden transition-transform transform hover:scale-105"
+        onClick={() => goToRestaurantPage(id)}
+
+        >
             <div className="relative">
                 <img src={image} alt={name} className="w-full h-48 object-cover" />
                 <span

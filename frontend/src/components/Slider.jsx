@@ -9,7 +9,7 @@ import FoodCard from './FoodCard';
 import pizza from '../assets/pizza.jpg';
 import burger from '../assets/burger.jpg';
 import './FoodSlider.css'; // Custom styles
-import { getFoodsDetails } from '../core/user';
+import { getFoodsDetails } from '../core/Food';
 
 // Dummy Data for Cards
 // const foodItems = [

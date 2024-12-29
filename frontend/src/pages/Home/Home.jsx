@@ -7,7 +7,8 @@ import SecondryButton from '../../components/SecondryButton';
 import RestaurantCard from '../../components/RestuarantCard';
 import FoodSlider from '../../components/Slider';
 import restuarantImage from '../../assets/restuarant.jpeg';
-import { getRestaurantDetails, getUserDetails } from '../../core/user';
+import { getRestaurantDetails } from '../../core/Restaurant';
+import {  getUserDetails } from '../../core/user';
 import logo from '../../../public/logo.svg'
 
 export default function Home() {

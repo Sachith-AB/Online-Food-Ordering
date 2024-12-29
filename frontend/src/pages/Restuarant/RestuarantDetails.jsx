@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import { AiOutlineFileText } from "react-icons/ai";
 import { IoWalletOutline } from "react-icons/io5";
@@ -10,11 +12,31 @@ import FeedbackForm from '../../components/FeedbackForm';
 import RestuarantFood from '../../components/RestuarantFood';
 import pizza from '../../assets/pizza.jpg';
 import restuarant from '../../assets/restuarant.jpeg';
+import { getResaurant } from '../../core/Restaurant';
 
 export default function RestuarantDetails() {
 
+    const { currentUser } = useSelector((state) => state.user);
     const [isOpen,setIsOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [restaurant,setRestaurant] = useState({});
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const restaurantId = queryParams.get('id');
+
+    useEffect(()=>{
+            const fetchDetails = async () => {
+                try {
+                    const restaurant = await getResaurant(currentUser.jwt,restaurantId);
+                    setRestaurant(restaurant);
+                    console.log(restaurant)
+                    setIsOpen(restaurant.open)
+                } catch (error) {
+                    console.error("Error fetching user details:", error); 
+                }
+            }
+            fetchDetails();
+        },[currentUser]);
 
     return (
         <div className='flex flex-col min-h-screen'>
@@ -28,15 +50,15 @@ export default function RestuarantDetails() {
                             <p className='text-4xl sm:text-4xl md:text-4xl lg:text-7xl font-bold text-start'
                                 style={{color:colors.primary.green}}    
                             >
-                                Avintha Hotel
+                                {restaurant.name}
                             </p>
                         </div>
-                        <p className='mt-5 text-gray-400 font-semibold'>We provide the most delicious food based on high quality ingridients that are maintained by high machines and cooked by our experts.</p>
+                        <p className='mt-5 text-gray-400 font-semibold'>{restaurant.description}</p>
                         <p className="text-gray-400  font-semibold mt-5">
                             We specialize in a variety of cuisines to satisfy your cravings, including:
                         </p>
                         <ul className="mt-3 list-disc ml-5 text-gray-700 font-semibold">
-                            <li>Italian</li>
+                            <li>{restaurant.cuisineType}</li>
                             <li>Chinese</li>
                             <li>Indian</li>
                             <li>Mexican</li>
@@ -48,7 +70,7 @@ export default function RestuarantDetails() {
                     <div className='relative'>
                         <div className='rounded-full w-96 h-96 overflow-hidden'>
                             <img 
-                                src={restuarant} 
+                                src={restaurant.images} 
                                 alt="restuarant image" 
                                 className='object-cover w-full h-full' 
                             />
