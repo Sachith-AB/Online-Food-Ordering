@@ -2,7 +2,7 @@ import React from 'react'
 
 import colors from '../theme/colorPalate'
 
-export default function PrimaryButton({text}) {
+export default function PrimaryButton({text,onclick}) {
     return (
         <button className='w-40 h-12 rounded-lg text-white font-semibold'
             style={{
@@ -11,6 +11,7 @@ export default function PrimaryButton({text}) {
             }}
             onMouseEnter={(e) => e.target.style.backgroundColor = colors.secondry.darkGreen}
             onMouseLeave={(e) => e.target.style.backgroundColor = colors.primary.green}
+            onClick={onclick}
         >
             {text}
         </button>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import PrimaryButton from '../../components/PrimaryButton';
 import SecondryButton from '../../components/SecondryButton';
@@ -10,11 +11,13 @@ import restuarantImage from '../../assets/restuarant.jpeg';
 import { getRestaurantDetails } from '../../core/Restaurant';
 import {  getUserDetails } from '../../core/user';
 
+
 export default function Home() {
     const { currentUser } = useSelector((state) => state.user);
     const [data,setData] = useState({});
     const [restaurants,setRestaurants] = useState({});
     const [token,setToken] = useState("");
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const fetchDetails = async () => {
@@ -29,7 +32,17 @@ export default function Home() {
             }
         }
         fetchDetails();
-    },[currentUser])
+    },[currentUser]);
+
+    const handleNavigate = () => {
+        {
+            !currentUser ? (
+                navigate('/login')
+            ):(
+                navigate('/')
+            )
+        }
+    }
     return (
         <div className="flex flex-col min-h-screen overflow-x-hidden">
             {/* Hero Section */}
@@ -42,7 +55,10 @@ export default function Home() {
                         Eat away at hunger. Lend a hand, give a can. You can help beat hunger!
                     </p>
                     <div className="flex flex-row mt-6 gap-4 justify-center lg:justify-start">
-                        <PrimaryButton text="Get Started" />
+                        <PrimaryButton 
+                            text="Get Started"
+                            onclick={handleNavigate}
+                        />
                         <SecondryButton text="Explore Menu" />
                     </div>
                 </div>
@@ -72,12 +88,20 @@ export default function Home() {
                 token && (
                     <>
                     <div className="px-4 md:px-10 lg:px-20 py-10">
-                        <p className="text-xl font-bold mb-6">Pick Your Meal Here</p>
+                        {
+                            currentUser && (
+                                <p className="text-xl font-bold mb-6">Pick Your Meal Here</p>
+                            )
+                        }
                         <FoodSlider jwt={currentUser.jwt}/>
                     
                     </div>
                     <div className="px-4 md:px-10 lg:px-20 py-10">
-                        <p className="text-xl font-bold mb-6">Pick From Your Favorite Restaurant</p>
+                        {
+                            currentUser && (
+                                <p className="text-xl font-bold mb-6">Pick From Your Favorite Restaurant</p>
+                            )
+                        }
                         <div className="flex flex-wrap justify-center md:justify-start gap-6">
                             {
                                 Array.isArray(restaurants) && restaurants.map((restaurant)=>(
